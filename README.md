@@ -27,7 +27,7 @@ gunicorn -w 1 -b :5000 wsgi:application
 
 NB: gunicorn isn't supported on windows, you will need to run this on linux or MacOS.
 
-Finally, to run with docker
+To run with docker using local build
 
 ```
 docker-compose build
@@ -36,3 +36,11 @@ curl --header "Content-Type: application/json" --request POST --data '{"X": 5}' 
 docker-compose down --remove-orphans
 ```
 
+Pull from docker hub and run with
+
+```
+docker pull jacobcvt12/model_deployment_api
+docker run -d -p 5000:5000 jacobcvt12/model_deployment_api
+curl --header "Content-Type: application/json" --request POST --data '{"X": 5}' 0.0.0.0:5000/api/predict
+docker stop container_id
+```
