@@ -27,3 +27,12 @@ gunicorn -w 1 -b :5000 wsgi:application
 
 NB: gunicorn isn't supported on windows, you will need to run this on linux or MacOS.
 
+Finally, to run with docker
+
+```
+docker-compose build
+docker-compose up -d
+curl --header "Content-Type: application/json" --request POST --data '{"X": 5}' 0.0.0.0:5000/api/predict
+docker-compose down --remove-orphans
+```
+
