@@ -18,3 +18,12 @@ python app.py
 ```
 curl --header "Content-Type: application/json" --request POST --data '{"number": 4}' 127.0.0.1:5000/predict
 ```
+
+Alternatively, serve the flask module with gunicorn (as would done be done in production)
+
+```
+gunicorn -w 1 -b :5000 wsgi:application
+```
+
+NB: gunicorn isn't supported on windows, you will need to run this on linux or MacOS.
+
