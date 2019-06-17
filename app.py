@@ -21,7 +21,5 @@ def predict_number():
     return str(number * 4)
 
 if __name__ == '__main__':
-    # python app.py
-    # curl --header "Content-Type: application/json" --request POST --data '{"number": 4}' 127.0.0.1:5000/predict
     app.run(debug=True)
 
